@@ -1,0 +1,20 @@
+{
+  "name": "theme-color-palette-in-custom-block",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florianbrinkmann/theme-color-palette-in-custom-block.git"
+  },
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "author": "Florian Brinkmann",
+  "bugs": {
+    "url": "https://github.com/florianbrinkmann/theme-color-palette-in-custom-block/issues"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^12.1.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
