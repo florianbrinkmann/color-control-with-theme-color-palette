@@ -1,5 +1,3 @@
-/* global fbnSectionWithColor */
-
 /**
  * WordPress dependencies
  */
@@ -45,10 +43,17 @@ registerBlockType( 'fbn/section-with-color', {
 			backgroundColor,
 		} = attributes;
 
-		let textColorClassName = '';
+		let textColorClassName = '',
+			themeColors = [];
+
+		const settings = wp.data.select( 'core/block-editor' ).getSettings();
+		if ( settings && settings.colors ) {
+			themeColors = settings.colors;
+		}
+
 		if ( color !== '' ) {
 			// Generate text color class name.
-			const currentColorObj = getColorObjectByColorValue( fbnSectionWithColor.colors, color );
+			const currentColorObj = getColorObjectByColorValue( themeColors, color );
 
 			if ( currentColorObj !== undefined ) {
 				textColorClassName = getColorClassName( 'color', currentColorObj.slug );
@@ -58,7 +63,7 @@ registerBlockType( 'fbn/section-with-color', {
 		let backgroundColorClassName = '';
 		if ( backgroundColor !== '' ) {
 			// Generate text color class name.
-			const currentBackgroundColorObj = getColorObjectByColorValue( fbnSectionWithColor.colors, backgroundColor );
+			const currentBackgroundColorObj = getColorObjectByColorValue( themeColors, backgroundColor );
 
 			if ( currentBackgroundColorObj !== undefined ) {
 				backgroundColorClassName = getColorClassName( 'background-color', currentBackgroundColorObj.slug );
@@ -99,10 +104,17 @@ registerBlockType( 'fbn/section-with-color', {
 			backgroundColor,
 		} = attributes;
 
-		let textColorClassName = '';
+		let textColorClassName = '',
+			themeColors = [];
+
+		const settings = wp.data.select( 'core/block-editor' ).getSettings();
+		if ( settings && settings.colors ) {
+			themeColors = settings.colors;
+		}
+
 		if ( color !== '' ) {
 			// Generate text color class name.
-			const currentColorObj = getColorObjectByColorValue( fbnSectionWithColor.colors, color );
+			const currentColorObj = getColorObjectByColorValue( themeColors, color );
 
 			if ( currentColorObj !== undefined ) {
 				textColorClassName = getColorClassName( 'color', currentColorObj.slug );
@@ -112,7 +124,7 @@ registerBlockType( 'fbn/section-with-color', {
 		let backgroundColorClassName = '';
 		if ( backgroundColor !== '' ) {
 			// Generate text color class name.
-			const currentBackgroundColorObj = getColorObjectByColorValue( fbnSectionWithColor.colors, backgroundColor );
+			const currentBackgroundColorObj = getColorObjectByColorValue( themeColors, backgroundColor );
 
 			if ( currentBackgroundColorObj !== undefined ) {
 				backgroundColorClassName = getColorClassName( 'background-color', currentBackgroundColorObj.slug );

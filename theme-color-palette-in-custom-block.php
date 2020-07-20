@@ -40,12 +40,6 @@ add_action( 'init', function() {
 add_action( 'enqueue_block_editor_assets', function() {
 	wp_enqueue_script( 'theme-color-palette-in-custom-block-editor-script' );
 
-	// Add data to JavaScript.
-	$colors = get_theme_support( 'editor-color-palette' );
-	wp_localize_script( 'theme-color-palette-in-custom-block-editor-script', 'fbnSectionWithColor', [
-		'colors' => is_array( $colors ) ? $colors[0] : [],
-	] );
-
 	wp_enqueue_style( 'theme-color-palette-in-custom-block-dummy-style' );
 
 	// Adding small padding to block in backend so that the wrapper block can be selected.
